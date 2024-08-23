@@ -1,0 +1,30 @@
+<div>
+    <label>{{ 'DATE_PICKER' | translate }}</label>
+    <mat-form-field appearance="fill">
+      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  
+  <div>
+    <label>Select Language</label>
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="onLanguageChange($event.value)">
+        <mat-option value="en">English</mat-option>
+        <mat-option value="fr">French</mat-option>
+        <mat-option value="de">German</mat-option>
+        <!-- Add more languages as needed -->
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div *ngIf="selectedLanguage">
+    <label>Calendar in {{ selectedLanguage | uppercase }}</label>
+    <mat-form-field appearance="fill">
+      <input matInput [matDatepicker]="picker2" [(ngModel)]="selectedDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  </div>
+  
